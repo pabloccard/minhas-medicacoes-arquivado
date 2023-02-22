@@ -13,7 +13,8 @@ export const Hero = styled.section`
   }
 
   img {
-    height: 520px;
+    /* height: 520px; */
+    width: 480px;
   }
 `
 
