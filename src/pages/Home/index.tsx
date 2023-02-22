@@ -1,19 +1,24 @@
-import { Content, Hero } from './styles'
-import girl from '../../../public/pimple-patches-pana.svg'
+import { Content, Hero, Container } from './styles'
 
 export function Home() {
   return (
-    <Hero>
-      <Content>
-        <h1>Transforme a gestão de medicações em uma tarefa tranquila</h1>
+    <Container>
+      <Hero>
+        <Content>
+          <h1>Simplifique o gerenciamento de suas medicações</h1>
 
-        <p>
-          nosso aplicativo de agendamento de medicamentos é fácil de usar e
-          confiável, ajudando você a manter sua saúde sob controle
-        </p>
-      </Content>
+          <p>Agende suas medicações e siga seu tratamento de forma eficaz</p>
 
-      <img src={girl} alt="" />
-    </Hero>
+          <a href="">
+            <button>Agendar agora</button>
+          </a>
+        </Content>
+
+        <img
+          src="src/assets/pimple-patches-pana.svg"
+          alt="Mulher segurando um medicamento"
+        />
+      </Hero>
+    </Container>
   )
 }
