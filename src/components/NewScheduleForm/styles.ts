@@ -2,32 +2,23 @@ import styled from 'styled-components'
 import * as RadioGroup from '@radix-ui/react-radio-group'
 
 export const Container = styled.form`
-  width: 488px;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  align-items: center;
+  gap: 1.25rem;
 
-  label {
-    display: block;
-    color: ${(props) => props.theme['gray-300']};
-    margin-bottom: 0.5rem;
-  }
+  > div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
 
-  input {
-    background: ${(props) => props.theme.input};
-    padding: 0.75rem 1rem;
-    border: 0;
-    border-radius: 8px;
+    width: 100%;
 
-    color: ${(props) => props.theme['gray-100']};
-    cursor: pointer;
-    font-size: 1rem;
-  }
-  input[type='time']::-webkit-calendar-picker-indicator,
-  input[type='date']::-webkit-calendar-picker-indicator {
-    filter: invert(23%) sepia(85%) saturate(5078%) hue-rotate(155deg)
-      brightness(99%) contrast(90%);
-    font-weight: bold;
+    img {
+      transform: rotateY(180deg);
+      width: 380px;
+    }
   }
 
   button[type='submit'] {
@@ -44,44 +35,34 @@ export const Container = styled.form`
   }
 `
 
-export const NumberInput = styled.div`
-  display: flex;
+export const InputsContainer = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
   align-items: center;
-  justify-content: space-between;
 
-  width: 220px;
-  position: relative;
-
-  button {
-    all: unset;
-
-    padding: 0.75rem;
-
-    background: ${(props) => props.theme.input};
-    border-radius: 6px;
-    cursor: pointer;
-
-    color: ${(props) => props.theme['green-600']};
-    line-height: 0;
-
-    &:focus {
-      border: 1px solid ${(props) => props.theme['green-600']};
-    }
-  }
-
-  input::-webkit-outer-spin-button,
-  input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+  label {
+    display: block;
+    color: ${(props) => props.theme['gray-300']};
+    margin-bottom: 0.5rem;
   }
 
   input {
-    position: absolute;
-    display: none;
-  }
+    background: ${(props) => props.theme.input};
+    padding: 0.75rem 1rem;
+    border: 0;
+    border-radius: 8px;
+    cursor: pointer;
 
-  span {
-    color: ${(props) => props.theme.white};
+    color: ${(props) => props.theme['gray-100']};
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+  }
+  input[type='time']::-webkit-calendar-picker-indicator,
+  input[type='date']::-webkit-calendar-picker-indicator {
+    filter: invert(23%) sepia(85%) saturate(5078%) hue-rotate(155deg)
+      brightness(99%) contrast(90%);
+    font-weight: bold;
   }
 `
 

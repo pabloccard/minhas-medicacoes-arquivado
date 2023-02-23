@@ -2,8 +2,7 @@ import { motion } from 'framer-motion'
 import styled from 'styled-components'
 
 export const WeeklyCalendarContainer = styled.div`
-  margin: 5rem auto;
-  width: 600px;
+  width: 680px;
 
   header {
     width: 100%;
