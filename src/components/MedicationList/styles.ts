@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import * as Checkbox from '@radix-ui/react-checkbox'
 
 export const Container = styled.div`
   width: 680px;
@@ -51,5 +52,40 @@ export const Table = styled.table`
       border-bottom-right-radius: 8px;
       color: ${(props) => props.theme['green-600']};
     }
+  }
+`
+export const CheckboxRoot = styled(Checkbox.Root)`
+  background-color: transparent;
+  border: 2px solid ${(props) => props.theme['green-600']};
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+  cursor: pointer;
+`
+
+export const CheckboxIndicator = styled(Checkbox.Indicator)`
+  color: ${(props) => props.theme['gray-200']};
+`
+
+export const Empty = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+
+  p {
+    color: ${(props) => props.theme['gray-300']};
+    font-size: 1.25rem;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  img {
+    width: 240px;
+    opacity: 0.9;
   }
 `

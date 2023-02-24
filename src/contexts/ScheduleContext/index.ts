@@ -6,6 +6,7 @@ type SchedulesContextType = {
   schedules: Array<ScheduleType>
   createSchedule: (data: CreateScheduleParams) => void
   findSchedules: (date: Date) => Array<ScheduleType>
+  markAsIngested: (id: string) => void
 }
 
 export const SchedulesContext = createContext<SchedulesContextType>(null!)

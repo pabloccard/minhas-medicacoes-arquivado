@@ -10,6 +10,10 @@ export const Header = () => {
           <a href="/calendar">Calendário</a>
           <a href="">Resumo</a>
         </nav>
+
+        <button>
+          <a href="/create">AGENDAR MEDICAÇÃO</a>
+        </button>
       </div>
     </Container>
   )

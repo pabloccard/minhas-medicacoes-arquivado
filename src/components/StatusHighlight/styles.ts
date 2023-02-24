@@ -5,12 +5,17 @@ type StatusVariants = {
 }
 
 export const Container = styled.span<StatusVariants>`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   padding: 0.25rem 0.5rem;
   border-radius: 3px;
   font-size: 0.75rem;
   font-weight: bold;
   text-transform: uppercase;
   height: 1.25rem;
+  width: 100%;
 
   background-color: ${(props) => {
     if (props.status === 'ingerido') {

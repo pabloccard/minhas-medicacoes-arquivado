@@ -54,9 +54,23 @@ export const SchedulesContextProvider = ({
     )
   }
 
+  function markAsIngested(id: string) {
+    setSchedules((prev) => {
+      return prev.map((schedule) => {
+        if (schedule.id === id) {
+          return {
+            ...schedule,
+            ingested: !schedule.ingested,
+          }
+        }
+        return schedule
+      })
+    })
+  }
+
   return (
     <SchedulesContext.Provider
-      value={{ schedules, createSchedule, findSchedules }}
+      value={{ schedules, createSchedule, findSchedules, markAsIngested }}
     >
       {children}
     </SchedulesContext.Provider>
