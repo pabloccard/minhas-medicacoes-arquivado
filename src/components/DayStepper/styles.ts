@@ -20,7 +20,7 @@ export const Container = styled.div`
     cursor: pointer;
     border: 0;
 
-    color: ${(props) => props.theme['green-600']};
+    color: ${(props) => props.theme.blue};
     line-height: 0;
     font-size: 1rem;
   }

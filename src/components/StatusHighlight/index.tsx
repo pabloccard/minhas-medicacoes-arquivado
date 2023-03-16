@@ -1,4 +1,4 @@
-import { isPast, parseISO } from 'date-fns'
+import { isPast } from 'date-fns'
 import { Container } from './styles'
 
 type StatusHighlightProps = {
@@ -11,7 +11,7 @@ export const StatusHighlight = ({
   ingested = false,
 }: StatusHighlightProps) => {
   function checkStatus() {
-    const late = isPast(parseISO(dateTime))
+    const late = isPast(new Date(dateTime))
 
     if (ingested) {
       return 'ingerido'

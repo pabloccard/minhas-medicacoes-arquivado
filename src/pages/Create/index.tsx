@@ -1,11 +1,11 @@
-import { NewScheduleForm } from '../../components/NewScheduleForm'
+import { DialogDemo } from '../../components/Dialog'
+import { NewScheduleFormDialog } from '../../components/NewScheduleFormDialog'
 import { Container } from './styles'
 
 export function Create() {
   return (
     <Container>
-      <h3>Agende sua nova medicação</h3>
-      <NewScheduleForm />
+      <DialogDemo />
     </Container>
   )
 }

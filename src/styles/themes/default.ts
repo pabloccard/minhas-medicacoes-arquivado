@@ -18,8 +18,18 @@ export const defaultTheme = {
   purple: '#8284FA',
   'purple-dark': '#5E60CE',
 
+  blue: '#005fd2',
+  'blue-dark': '#003d8d',
+  'blue-dark-opacity': 'rgb(0, 61, 141, 0.4)',
+
+  green: '#00efd1',
+  'green-dark': '#00ad95',
+
+  orange: '#FFAA20',
+  'orange-dark': '#ff8900',
+
   'green-500': '#00B37E',
-  'green-600': '#00875F',
+  'green-600': '#00B37E',
 
   danger: '#E25858',
 } as const

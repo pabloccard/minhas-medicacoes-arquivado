@@ -1,5 +1,5 @@
 import { ScheduleType } from '../../types/Schedule'
-import { addDays, eachMinuteOfInterval, isSameDay } from 'date-fns'
+import { addDays, eachMinuteOfInterval, formatISO, isSameDay } from 'date-fns'
 import { ReactNode } from 'react'
 import { SchedulesContext } from '.'
 import { v4 as uuidV4 } from 'uuid'
@@ -41,7 +41,7 @@ export const SchedulesContextProvider = ({
         id: uuidV4(),
         title,
         ingested: false,
-        datetime: schedule,
+        datetime: formatISO(schedule),
       }
     })
 
@@ -49,9 +49,9 @@ export const SchedulesContextProvider = ({
   }
 
   function findSchedules(date: Date) {
-    return schedules.filter((schedule) =>
-      isSameDay(new Date(schedule.datetime), new Date(date)),
-    )
+    return schedules.filter(({ datetime }) => {
+      return isSameDay(new Date(datetime), date)
+    })
   }
 
   function markAsIngested(id: string) {

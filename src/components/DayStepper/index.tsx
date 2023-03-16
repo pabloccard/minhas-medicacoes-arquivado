@@ -8,7 +8,6 @@ type DayStepperProps = {
 }
 
 export const DayStepper = ({ value, onValueChange }: DayStepperProps) => {
-  console.log(value)
   return (
     <Container>
       <button

@@ -1,8 +1,8 @@
 import { ScheduleType } from '../../types/Schedule'
 import { SchedulesContext } from '../../contexts/ScheduleContext'
 import { SelectedDateContext } from '../../contexts/SelectedDateContext'
-import { time } from '../../utils/formatter'
-import { intlFormat, isPast, isFuture } from 'date-fns'
+import { time, day, month } from '../../utils/formatter'
+import { intlFormat } from 'date-fns'
 import { useContext, useEffect, useState } from 'react'
 import {
   CheckboxIndicator,
@@ -12,25 +12,36 @@ import {
   Empty,
 } from './styles'
 import { StatusHighlight } from '../StatusHighlight'
-import { Checks, Check } from 'phosphor-react'
+import { Check } from 'phosphor-react'
 
 export const MedicationList = () => {
   const { selectedDate } = useContext(SelectedDateContext)
   const { findSchedules, markAsIngested } = useContext(SchedulesContext)
 
-  const [schedules, setSchedules] = useState<ScheduleType[]>()
+  const [schedules, setSchedules] = useState<ScheduleType[]>([])
 
   useEffect(() => {
     const schedules = findSchedules(selectedDate)
-    setSchedules(schedules)
+
+    const sortedSchedules = schedules.sort(
+      (a, b) => new Date(a.datetime).getTime() - new Date(b.datetime).getTime(),
+    )
+
+    setSchedules(sortedSchedules)
   }, [findSchedules, selectedDate])
 
   return (
     <Container>
-      {schedules?.length > 0 ? (
+      {schedules.length > 0 && (
         <Table style={{ width: '100%' }}>
+          <thead>
+            <th></th>
+            <th>medicação</th>
+            <th>horário</th>
+            <th>status</th>
+          </thead>
           <tbody>
-            {schedules?.map((schedule) => (
+            {schedules.map((schedule) => (
               <tr key={schedule.id}>
                 <td>
                   <CheckboxRoot
@@ -38,7 +49,7 @@ export const MedicationList = () => {
                     checked={schedule.ingested}
                   >
                     <CheckboxIndicator>
-                      <Check />
+                      <Check weight="bold" />
                     </CheckboxIndicator>
                   </CheckboxRoot>
                 </td>
@@ -59,11 +70,16 @@ export const MedicationList = () => {
             ))}
           </tbody>
         </Table>
-      ) : (
+      )}
+
+      {schedules.length === 0 && (
         <Empty>
-          <img src="src/assets/pharmacist-cuate.svg" alt="" />
+          {/* <img src="src/assets/medicine-cuate.svg" alt="" /> */}
           <p>
-            Nenhum medicamento para hoje! <br />
+            {`Nenhuma medicação para ${day(selectedDate)} de ${month(
+              selectedDate,
+            )}`}
+            <br />
           </p>
         </Empty>
       )}

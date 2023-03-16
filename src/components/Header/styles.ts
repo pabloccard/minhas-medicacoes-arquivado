@@ -1,6 +1,7 @@
+import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
 
-export const Container = styled.header`
+export const Container = styled.div`
   width: 100vw;
   border-bottom: 1px solid ${(props) => props.theme['gray-500']};
 
@@ -8,7 +9,12 @@ export const Container = styled.header`
     color: white;
   }
 
-  > div {
+  > header {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+
     max-width: 1120px;
     padding: 0 1.5rem;
     margin: 0 auto;
@@ -18,43 +24,46 @@ export const Container = styled.header`
     align-items: center;
 
     height: 5rem;
-  }
 
-  nav {
-    display: flex;
-    gap: 2rem;
-
-    a {
-      color: ${(props) => props.theme['gray-300']};
-      text-decoration: none;
-    }
-  }
-
-  button {
-    padding: 0.875rem 1rem;
-    background: none;
-    text-decoration: none;
-    border-radius: 8px;
-    border: 1px solid ${(props) => props.theme['green-600']};
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-
-    &:hover {
-      background-color: ${(props) => props.theme['green-500']};
+    img {
+      width: 3rem;
     }
 
-    a {
-      display: block;
-      width: 100%;
-      height: 100%;
-      text-decoration: none;
-      color: white;
-      font-weight: 700;
-      font-size: 0.75rem;
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
 
-      background-color: blue;
+      ul {
+        list-style: none;
+        display: flex;
+        gap: 2rem;
+      }
 
-      line-height: 1.3;
+      > a {
+        text-decoration: none;
+        color: ${(props) => props.theme['gray-100']};
+        padding: 0.875rem 1rem;
+        border: 1px solid ${(props) => props.theme.orange};
+        font-weight: bold;
+        font-size: 0.75rem;
+        border-radius: 8px;
+        transition: background-color 0.2s ease;
+
+        &:hover {
+          background: ${(props) => props.theme.orange};
+        }
+      }
     }
   }
+`
+type LinkProps = {
+  active: boolean
+}
+
+export const Link = styled(NavLink)<LinkProps>`
+  text-decoration: none;
+  transition: color 0.2s ease;
+  color: ${(props) =>
+    props.active ? props.theme['gray-100'] : props.theme['gray-300']};
 `

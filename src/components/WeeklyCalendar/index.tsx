@@ -20,6 +20,9 @@ import {
   Controls,
   WeekDaysContainer,
   WeekDay,
+  WeekContainer,
+  NextWeekButton,
+  PreviousWeekButton,
 } from './styles'
 
 export const WeeklyCalendar = () => {
@@ -66,34 +69,39 @@ export const WeeklyCalendar = () => {
             </div>
           </SelectedDate>
 
-          <Controls isToday={isToday(selectedDate)}>
-            <button onClick={resetCalendar}>Hoje</button>
-            <button onClick={setPreviousWeek}>
-              <CaretLeft />
-            </button>
-            <button onClick={setNextWeek}>
-              <CaretRight />
-            </button>
-          </Controls>
+          {!isToday(selectedDate) && (
+            <Controls isToday={isToday(selectedDate)}>
+              <button onClick={resetCalendar}>VOLTAR PARA HOJE</button>
+            </Controls>
+          )}
         </header>
+        <WeekContainer>
+          <PreviousWeekButton onClick={setPreviousWeek}>
+            <CaretLeft />
+          </PreviousWeekButton>
 
-        <WeekDaysContainer>
-          {week.map((date) => (
-            <WeekDay
-              key={String(date)}
-              $active={isSameDay(date, selectedDate)}
-              $isToday={isToday(date)}
-              onClick={() => handleSelectDate(date)}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.5 }}
-            >
-              <span>{shortWeekDay(date)}</span>
-              <span>{day(date)}</span>
-            </WeekDay>
-          ))}
-        </WeekDaysContainer>
+          <WeekDaysContainer>
+            {week.map((date) => (
+              <WeekDay
+                key={String(date)}
+                $active={isSameDay(date, selectedDate)}
+                $isToday={isToday(date)}
+                onClick={() => handleSelectDate(date)}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.5 }}
+              >
+                <span>{shortWeekDay(date)}</span>
+                <span>{day(date)}</span>
+              </WeekDay>
+            ))}
+          </WeekDaysContainer>
+
+          <NextWeekButton onClick={setNextWeek}>
+            <CaretRight />
+          </NextWeekButton>
+        </WeekContainer>
       </WeeklyCalendarContainer>
     </AnimatePresence>
   )

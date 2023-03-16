@@ -8,10 +8,6 @@ export function Home() {
           <h1>Simplifique o gerenciamento de suas medicações</h1>
 
           <p>Agende suas medicações e siga seu tratamento de forma eficaz</p>
-
-          <a href="">
-            <button>Agendar agora</button>
-          </a>
         </Content>
 
         <img

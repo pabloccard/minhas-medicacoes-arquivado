@@ -3,13 +3,16 @@ import styled from 'styled-components'
 
 export const WeeklyCalendarContainer = styled.div`
   width: 680px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   header {
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 2rem;
+    margin-bottom: 1.75rem;
   }
 `
 
@@ -20,13 +23,13 @@ type SelectedDateProps = {
 export const SelectedDate = styled(motion.div)<SelectedDateProps>`
   display: flex;
   align-items: center;
+
   gap: 0.5rem;
 
   > strong {
     color: ${(props) =>
       props.$isActive ? props.theme['gray-100'] : props.theme['gray-300']};
     font-size: 4.5rem;
-    line-height: 0;
   }
 
   > div {
@@ -45,47 +48,32 @@ type ControlsProps = {
 }
 
 export const Controls = styled.div<ControlsProps>`
-  display: grid;
-  grid-template-columns: auto auto;
-  grid-gap: 0.5rem;
-
   button:first-child {
-    all: unset;
-    border: 1px solid ${(props) => props.theme['green-600']};
-    grid-column-start: 1;
-    grid-column-end: 3;
+    border: 0;
+    background: ${(props) => props.theme['blue-dark']};
     border-radius: 4px;
     text-align: center;
     padding: 0.75rem;
     font-weight: 500;
-    color: ${(props) =>
-      props.isToday ? props.theme['gray-100'] : props.theme['gray-300']};
-    font-size: 0.875rem;
+    color: ${(props) => props.theme.white};
+    font-weight: bold;
+    font-size: 0.75rem;
     cursor: pointer;
 
+    transition: background-color 0.2s ease;
+
     &:hover {
-      background-color: ${(props) => props.theme['green-600']};
+      background-color: ${(props) => props.theme.blue};
       color: white;
       transition: background-color 0.2s, color 0.2s;
     }
   }
-
-  button {
-    all: unset;
-    background-color: ${(props) => props.theme['gray-500']};
-    border-radius: 4px;
-    padding: 0.25rem;
-    cursor: pointer;
-
-    color: ${(props) => props.theme['gray-300']};
-    line-height: 0;
-  }
 `
 export const WeekDaysContainer = styled.div`
-  width: 100%;
+  width: 550px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  gap: 2rem;
+  gap: 1rem;
 `
 type WeekDayVariants = {
   $isToday: boolean
@@ -94,6 +82,7 @@ type WeekDayVariants = {
 
 export const WeekDay = styled(motion.button)<WeekDayVariants>`
   all: unset;
+  /* background-color: ${(props) => props.theme['orange-dark']}; */
 
   display: flex;
   flex-direction: column;
@@ -102,34 +91,68 @@ export const WeekDay = styled(motion.button)<WeekDayVariants>`
 
   position: relative;
   padding: 0.875rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+
+  background: ${(props) =>
+    props.$active ? props.theme.blue : props.theme.input};
 
   color: ${(props) =>
     props.$active ? props.theme['gray-100'] : props.theme['gray-300']};
 
-  cursor: pointer;
-  transition: transform 0.2s ease-in;
+  font-weight: ${(props) => props.$active && 'bold'};
 
   span:first-child {
     font-size: 0.875rem;
-    font-weight: 500;
     text-transform: uppercase;
+    font-weight: ${(props) => props.$active && 'bold'};
   }
 
   span:last-child {
     font-weight: 700;
   }
 
-  &::before {
+  /* &::before {
     content: '';
     width: 8px;
     height: 8px;
     position: absolute;
     top: -0.25rem;
-    background: ${(props) => props.$isToday && props.theme['green-600']};
+    background: ${(props) => props.$isToday && props.theme.orange};
     border-radius: 50%;
-  }
+  } */
 
   &:hover {
     transform: translateY(-0.5rem);
   }
+`
+export const WeekContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  /* gap: 1rem; */
+
+  button:first-child {
+  }
+  svg {
+    font-size: 3rem;
+    color: ${(props) => props.theme['gray-400']};
+  }
+`
+export const PreviousWeekButton = styled.button`
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  line-height: 0;
+  /* width: 100%; */
+`
+
+export const NextWeekButton = styled.button`
+  background: transparent;
+  border: none;
+  line-height: 0;
+  cursor: pointer;
+  /* width: 100%; */
 `
