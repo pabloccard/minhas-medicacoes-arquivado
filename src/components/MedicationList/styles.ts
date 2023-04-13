@@ -2,17 +2,16 @@ import styled from 'styled-components'
 import * as Checkbox from '@radix-ui/react-checkbox'
 
 export const Container = styled.div`
-  width: 680px;
+  width: 550px;
   margin: 0 auto;
   border-radius: 10px;
-  margin-top: 1.75rem;
+  margin-top: 4rem;
 `
 
 export const Table = styled.table`
   width: 100%;
   border-collapse: separate;
   border-spacing: 0 0.5rem;
-  min-width: 600px;
 
   th {
     background-color: ${(props) => props.theme.input};

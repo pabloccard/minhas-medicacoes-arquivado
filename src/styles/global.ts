@@ -9,8 +9,8 @@ export const GlobalStyles = createGlobalStyle`
 
     body {
         -webkit-font-smoothing: antialiased;
-        background: ${(props) => props.theme['gray-700']};
+        background: ${(props) => props.theme['gray-600']};
         font-family: 'Roboto', sans-serif;
-        overflow: overlay;
+        overflow-x: hidden;
     }
 `

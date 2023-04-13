@@ -1,22 +1,19 @@
-import React from 'react'
 import * as Dialog from '@radix-ui/react-dialog'
-
 import { X } from 'phosphor-react'
+
 import {
   DialogTrigger,
   DialogOverlay,
   DialogContent,
   DialogClose,
 } from './styles'
-import { NewScheduleFormDialog } from '../NewScheduleFormDialog'
-import { NameStep } from '../MultiStepMedicationScheduleForm/steps/NameStep'
 import { MultStepForm } from '../MultiStepMedicationScheduleForm'
 
 export const DialogDemo = () => {
   return (
     <Dialog.Root>
       <DialogTrigger asChild>
-        <button>AGENDAR MEDICAÇÃO</button>
+        <button>Nova medicação</button>
       </DialogTrigger>
       <Dialog.Portal>
         <DialogOverlay />

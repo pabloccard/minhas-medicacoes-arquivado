@@ -1,50 +1,40 @@
 import styled from 'styled-components'
 
-export const Container = styled.div``
+export const Container = styled.div`
+  /* height: calc(100vh - 81px); */
+  /* display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 1120px;
+  margin: 0 auto; */
+  padding-block: 4.5rem 6rem;
+`
 
 export const Hero = styled.section`
   display: flex;
   align-items: center;
-
-  padding: 6.875rem 0rem;
+  justify-content: center;
+  flex-direction: column;
+  gap: 3.5rem;
 
   h1 {
-    color: ${(props) => props.theme['gray-100']};
-    font-size: 3rem;
-    margin-bottom: 1.5rem;
+    color: ${(props) => props.theme['gray-200']};
+    font-size: 2.625rem;
     font-weight: 900;
     line-height: 1.1;
+    text-align: center;
+
+    span {
+      color: ${(props) => props.theme['green-600']};
+    }
   }
   p {
     color: ${(props) => props.theme['gray-300']};
-    font-size: 1.5rem;
-    margin-bottom: 2.5rem;
-  }
-
-  a {
-    button {
-      padding: 1.25rem 4rem;
-      background-color: ${(props) => props.theme['green-600']};
-      text-decoration: none;
-      border-radius: 100px;
-      cursor: pointer;
-
-      color: white;
-      font-weight: 700;
-      font-size: 1.25rem;
-      border: 0;
-      line-height: 1.3;
-
-      &:hover {
-        background-color: ${(props) => props.theme['green-500']};
-        transition: background-color 0.2s ease;
-      }
-    }
+    font-size: 18px;
+    text-align: center;
   }
 
   img {
-    width: 480px;
+    width: 220px;
   }
 `
-
-export const Content = styled.div``

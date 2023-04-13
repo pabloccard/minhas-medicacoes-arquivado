@@ -2,9 +2,6 @@ import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
 
 export const Container = styled.div`
-  width: 100vw;
-  border-bottom: 1px solid ${(props) => props.theme['gray-500']};
-
   span {
     color: white;
   }
@@ -15,15 +12,13 @@ export const Container = styled.div`
     flex-direction: row;
     align-items: center;
 
-    max-width: 1120px;
-    padding: 0 1.5rem;
+    max-width: 1440px;
+    padding: 1.5rem 1.5rem;
     margin: 0 auto;
 
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-    height: 5rem;
 
     img {
       width: 3rem;
@@ -46,7 +41,7 @@ export const Container = styled.div`
         padding: 0.875rem 1rem;
         border: 1px solid ${(props) => props.theme.orange};
         font-weight: bold;
-        font-size: 0.75rem;
+
         border-radius: 8px;
         transition: background-color 0.2s ease;
 
@@ -62,8 +57,21 @@ type LinkProps = {
 }
 
 export const Link = styled(NavLink)<LinkProps>`
-  text-decoration: none;
-  transition: color 0.2s ease;
+  width: 3rem;
+  height: 3rem;
+
+  transition: color 0.2s ease, border-color 0.2s ease;
+
+  border-top: 3px solid transparent;
+  border-bottom: 3px solid transparent;
+  border-bottom-color: ${(props) => props.active && props.theme['green-600']};
+
   color: ${(props) =>
-    props.active ? props.theme['gray-100'] : props.theme['gray-300']};
+    props.active ? props.theme['green-600'] : props.theme['gray-300']};
+
+  font-size: 1.5rem;
+
+  &:hover {
+    border-bottom-color: ${(props) => props.theme['green-600']};
+  }
 `

@@ -1,6 +1,7 @@
 import { useLocation } from 'react-router-dom'
-import { DialogDemo } from '../Dialog'
+
 import { Container, Link } from './styles'
+import { AiOutlineHome, AiOutlineCalendar } from 'react-icons/ai'
 
 export const Header = () => {
   const currentPath = useLocation().pathname
@@ -8,29 +9,23 @@ export const Header = () => {
   return (
     <Container>
       <header>
-        <img src="src/assets/pills.png" alt="" />
+        <span>LOGO</span>
 
         <nav>
           <ul>
             <li>
               <Link to="/" active={currentPath === '/'}>
-                Home
+                <AiOutlineHome />
               </Link>
             </li>
             <li>
               <Link to="/calendar" active={currentPath === '/calendar'}>
-                Calendário
-              </Link>
-            </li>
-            <li>
-              <Link to="/resume" active={currentPath === '/resume'}>
-                Resumo
+                <AiOutlineCalendar />
               </Link>
             </li>
           </ul>
+          {/* <DialogDemo /> */}
         </nav>
-
-        <DialogDemo />
       </header>
     </Container>
   )

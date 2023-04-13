@@ -11,7 +11,7 @@ import {
   startOfWeek,
   subDays,
 } from 'date-fns'
-
+import getWeekOfMonth from 'date-fns/getWeekOfMonth'
 import { AnimatePresence } from 'framer-motion'
 import { CaretLeft, CaretRight } from 'phosphor-react'
 import {
@@ -57,6 +57,9 @@ export const WeeklyCalendar = () => {
     setSelectedDate(date)
   }
 
+  const advancedAWeek =
+    getWeekOfMonth(selectedDate) !== getWeekOfMonth(new Date())
+
   return (
     <AnimatePresence>
       <WeeklyCalendarContainer>
@@ -69,7 +72,7 @@ export const WeeklyCalendar = () => {
             </div>
           </SelectedDate>
 
-          {!isToday(selectedDate) && (
+          {advancedAWeek && (
             <Controls isToday={isToday(selectedDate)}>
               <button onClick={resetCalendar}>VOLTAR PARA HOJE</button>
             </Controls>

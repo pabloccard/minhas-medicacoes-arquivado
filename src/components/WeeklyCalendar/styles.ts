@@ -8,11 +8,11 @@ export const WeeklyCalendarContainer = styled.div`
   align-items: center;
 
   header {
-    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 1.75rem;
+    margin-bottom: 1rem;
+    width: 550px;
   }
 `
 
@@ -37,7 +37,8 @@ export const SelectedDate = styled(motion.div)<SelectedDateProps>`
     flex-direction: column;
 
     > span {
-      color: ${(props) => props.theme['gray-300']};
+      color: ${(props) =>
+        props.$isActive ? props.theme['gray-100'] : props.theme['gray-300']};
       text-transform: capitalize;
       line-height: 1.6;
     }
@@ -96,32 +97,35 @@ export const WeekDay = styled(motion.button)<WeekDayVariants>`
   transition: transform 0.2s ease, background-color 0.2s ease;
 
   background: ${(props) =>
-    props.$active ? props.theme.blue : props.theme.input};
+    props.$active ? props.theme['green-600'] : props.theme['gray-500']};
 
   color: ${(props) =>
-    props.$active ? props.theme['gray-100'] : props.theme['gray-300']};
+    props.$isToday || props.$active
+      ? props.theme.white
+      : props.theme['gray-300']};
 
-  font-weight: ${(props) => props.$active && 'bold'};
+  /* font-weight: ${(props) => props.$active && 'bold'}; */
 
   span:first-child {
     font-size: 0.875rem;
     text-transform: uppercase;
-    font-weight: ${(props) => props.$active && 'bold'};
+    font-weight: ${(props) => props.$isToday && 'bold'};
   }
 
   span:last-child {
-    font-weight: 700;
+    font-weight: ${(props) => props.$isToday && 'bold'};
   }
 
-  /* &::before {
+  &::before {
     content: '';
     width: 8px;
     height: 8px;
     position: absolute;
-    top: -0.25rem;
-    background: ${(props) => props.$isToday && props.theme.orange};
+    top: -0.85rem;
+    background: ${(props) =>
+      props.$isToday && !props.$active && props.theme['green-600']};
     border-radius: 50%;
-  } */
+  }
 
   &:hover {
     transform: translateY(-0.5rem);
@@ -132,7 +136,6 @@ export const WeekContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  /* gap: 1rem; */
 
   button:first-child {
   }

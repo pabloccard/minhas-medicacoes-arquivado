@@ -3,23 +3,17 @@ import * as Dialog from '@radix-ui/react-dialog'
 import styled from 'styled-components'
 
 export const DialogTrigger = styled(Dialog.Trigger)`
-  padding: 0.875rem 1rem;
+  background: ${(props) => props.theme['green-600']};
+  border-radius: 100px;
 
-  background: transparent;
-  border: 1px solid ${(props) => props.theme['blue-dark']};
-
-  border-radius: 8px;
+  color: ${(props) => props.theme['gray-100']};
+  font-weight: 700;
+  font-size: 0.875rem;
+  line-height: 23px;
+  border: 0;
   cursor: pointer;
 
-  color: white;
-  font-weight: bold;
-  font-size: 0.75rem;
-
-  transition: background-color 0.2s ease;
-
-  &:hover {
-    background: ${(props) => props.theme.blue};
-  }
+  padding: 0.75rem 1.75rem;
 `
 
 export const DialogOverlay = styled(Dialog.Overlay)`

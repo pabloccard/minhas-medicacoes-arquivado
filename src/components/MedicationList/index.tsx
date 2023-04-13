@@ -1,7 +1,7 @@
 import { ScheduleType } from '../../types/Schedule'
 import { SchedulesContext } from '../../contexts/ScheduleContext'
 import { SelectedDateContext } from '../../contexts/SelectedDateContext'
-import { time, day, month } from '../../utils/formatter'
+import { day, month } from '../../utils/formatter'
 import { intlFormat } from 'date-fns'
 import { useContext, useEffect, useState } from 'react'
 import {
