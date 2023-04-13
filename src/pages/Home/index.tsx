@@ -1,5 +1,6 @@
 import { DialogDemo } from '../../components/Dialog'
 import { Hero, Container } from './styles'
+import heroImg from '../../assets/pimple-patches-pana.svg'
 
 export function Home() {
   return (
@@ -9,10 +10,7 @@ export function Home() {
           Simplifique o <span>gerenciamento</span> de suas medicações
         </h1>
 
-        <img
-          src="src/assets/pimple-patches-pana.svg"
-          alt="Mulher segurando um medicamento"
-        />
+        <img src={heroImg} alt="Mulher segurando um medicamento" />
         <p>Chega de se atrapalhar na hora de programar suas medicações.</p>
 
         <DialogDemo />
