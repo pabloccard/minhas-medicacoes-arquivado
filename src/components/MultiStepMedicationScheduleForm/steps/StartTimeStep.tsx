@@ -35,8 +35,10 @@ export const StartTimeStep = ({
 
   return (
     <S.Container onSubmit={handleSubmit(submit)}>
-      <label htmlFor="startDate">Horário da primeira dosagem</label>
-      <input {...register('startTime')} type="time" id="startTime" />
+      <fieldset>
+        <label htmlFor="startDate">Horário da primeira dosagem</label>
+        <input {...register('startTime')} type="time" id="startTime" />
+      </fieldset>
 
       <S.Controls>
         <button type="submit" onClick={() => changeStep(currentStep - 1)}>

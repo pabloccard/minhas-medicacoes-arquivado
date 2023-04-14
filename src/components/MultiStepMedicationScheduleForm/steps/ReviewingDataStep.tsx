@@ -20,25 +20,26 @@ export const ReviewingDataStep = ({
   function handleCreateSchedule() {
     createSchedule(data)
   }
+
+  const { title, durationInDays, intervalInHours, startDate, startTime } = data
   return (
     <S.ReviewingContainer>
-      {/* <span>
-        <strong>Medicamento: {title}</strong>
+      <span>
+        <strong>Medicamento: </strong> {title}
       </span>
       <span>
-        <strong>
-          Duração do tratamento: {`${durationInDays} em ${durationInDays}`}
-        </strong>
+        <strong>Duração do tratamento: </strong>
+        {`${durationInDays} em ${durationInDays}`}
       </span>
       <span>
-        <strong>intervalo de horas:{`${intervalInHours} horas`}</strong>
+        <strong>intervalo de horas: </strong> {`${intervalInHours} horas`}
       </span>
       <span>
-        <strong>Início do tratamento:{startDate}</strong>
+        <strong>Início do tratamento: </strong> {startDate}
       </span>
       <span>
-        <strong>Primeira dose:{startTime}</strong>
-      </span> */}
+        <strong>Primeira dose: </strong> {startTime}
+      </span>
       <S.Controls>
         <button onClick={() => changeStep(currentStep - 1)}>Voltar</button>
         <Dialog.Close onClick={handleCreateSchedule}>Agendar</Dialog.Close>

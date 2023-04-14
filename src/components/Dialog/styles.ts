@@ -9,7 +9,7 @@ export const DialogTrigger = styled(Dialog.Trigger)`
   color: ${(props) => props.theme['gray-100']};
   font-weight: 700;
   font-size: 0.875rem;
-  line-height: 23px;
+  line-height: 1.5rem;
   border: 0;
   cursor: pointer;
 
@@ -33,23 +33,24 @@ export const DialogOverlay = styled(Dialog.Overlay)`
   }
 `
 export const DialogContent = styled(Dialog.Content)`
-  padding: 25px;
+  padding: 2.5rem;
 
   background-color: ${(props) => props.theme['gray-700']};
   border-radius: 6px;
 
   position: fixed;
-  top: 50%;
+  top: 10%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translateX(-50%);
 
   width: 90vw;
-  max-width: 380px;
-  max-height: 85vh;
+  max-width: 400px;
 
   h2 {
     color: ${(props) => props.theme['gray-200']};
-    margin-bottom: 2rem;
+    font-size: 1.5rem;
+    margin-bottom: 2.5rem;
+    text-align: center;
   }
 
   animation: contentShow 500ms cubic-bezier(0.16, 1, 0.3, 1);
@@ -57,11 +58,9 @@ export const DialogContent = styled(Dialog.Content)`
   @keyframes contentShow {
     from {
       opacity: 0;
-      transform: translate(-50%, -48%) scale(0.96);
     }
     to {
       opacity: 1;
-      transform: translate(-50%, -50%) scale(1);
     }
   }
 `
@@ -69,8 +68,8 @@ export const DialogContent = styled(Dialog.Content)`
 export const DialogClose = styled(Dialog.Close)`
   border: none;
   border-radius: 100%;
-  height: 25px;
-  width: 25px;
+  height: 1.5rem;
+  width: 1.5rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -79,4 +78,5 @@ export const DialogClose = styled(Dialog.Close)`
   color: ${(props) => props.theme['gray-200']};
   top: 10px;
   right: 10px;
+  font-size: 1rem;
 `

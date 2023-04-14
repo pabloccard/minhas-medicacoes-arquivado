@@ -39,14 +39,13 @@ export const Container = styled.div`
         text-decoration: none;
         color: ${(props) => props.theme['gray-100']};
         padding: 0.875rem 1rem;
-        border: 1px solid ${(props) => props.theme.orange};
+
         font-weight: bold;
 
         border-radius: 8px;
         transition: background-color 0.2s ease;
 
         &:hover {
-          background: ${(props) => props.theme.orange};
         }
       }
     }

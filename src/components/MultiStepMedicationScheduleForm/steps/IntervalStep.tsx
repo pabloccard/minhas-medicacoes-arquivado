@@ -34,19 +34,21 @@ export const IntervalStep = ({
   }
   return (
     <S.Container onSubmit={handleSubmit(setData)}>
-      <label htmlFor="interval">Qual o intervalo de horas?</label>
-      <Controller
-        control={control}
-        name="intervalInHours"
-        rules={{ required: true }}
-        render={({ field: { onChange, value } }) => (
-          <S.RadioGroupRoot value={value} onValueChange={onChange}>
-            <S.RadioGroupItem value="8">8h</S.RadioGroupItem>
-            <S.RadioGroupItem value="10">10h</S.RadioGroupItem>
-            <S.RadioGroupItem value="12">12h</S.RadioGroupItem>
-          </S.RadioGroupRoot>
-        )}
-      />
+      <fieldset>
+        <label htmlFor="interval">Qual o intervalo de horas?</label>
+        <Controller
+          control={control}
+          name="intervalInHours"
+          rules={{ required: true }}
+          render={({ field: { onChange, value } }) => (
+            <S.RadioGroupRoot value={value} onValueChange={onChange}>
+              <S.RadioGroupItem value="8">8h</S.RadioGroupItem>
+              <S.RadioGroupItem value="10">10h</S.RadioGroupItem>
+              <S.RadioGroupItem value="12">12h</S.RadioGroupItem>
+            </S.RadioGroupRoot>
+          )}
+        />
+      </fieldset>
 
       <S.Controls>
         <button type="submit" onClick={() => changeStep(currentStep - 1)}>

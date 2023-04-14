@@ -34,13 +34,16 @@ export const NameStep = ({ changeStep, currentStep }: NameStepProps) => {
   return (
     <div>
       <S.Container onSubmit={handleSubmit(submit)}>
-        <label htmlFor="medicationName">Qual o nome do medicamento?</label>
-        <input
-          {...register('title')}
-          type="text"
-          id="medicationName"
-          placeholder="Amoxicilina"
-        />
+        <fieldset>
+          <label htmlFor="medicationName">Qual o nome do medicamento?</label>
+          <input
+            {...register('title')}
+            type="text"
+            id="medicationName"
+            placeholder="Amoxicilina"
+          />
+        </fieldset>
+
         <S.Controls>
           <button type="submit">Avançar</button>
         </S.Controls>

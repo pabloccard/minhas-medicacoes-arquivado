@@ -4,7 +4,7 @@ import { FormDataContext } from '.'
 import { FormDataType } from '../../types/FormData'
 
 const defaultFormData: FormDataType = {
-  title: 'Pablo',
+  title: '',
   durationInDays: 7,
   intervalInHours: '12',
   startTime: '08:00',

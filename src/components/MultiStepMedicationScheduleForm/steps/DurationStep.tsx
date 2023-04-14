@@ -35,15 +35,17 @@ export const DurationStep = ({
   }
   return (
     <S.Container onSubmit={handleSubmit(submit)}>
-      <label htmlFor="duration">Duração do tratamento?</label>
-      <Controller
-        control={control}
-        name="durationInDays"
-        rules={{ required: true }}
-        render={({ field: { onChange, value } }) => (
-          <DayStepper value={value} onValueChange={onChange} />
-        )}
-      />
+      <fieldset>
+        <label htmlFor="duration">Duração do tratamento?</label>
+        <Controller
+          control={control}
+          name="durationInDays"
+          rules={{ required: true }}
+          render={({ field: { onChange, value } }) => (
+            <DayStepper value={value} onValueChange={onChange} />
+          )}
+        />
+      </fieldset>
 
       <S.Controls>
         <button type="submit" onClick={() => changeStep(currentStep - 1)}>

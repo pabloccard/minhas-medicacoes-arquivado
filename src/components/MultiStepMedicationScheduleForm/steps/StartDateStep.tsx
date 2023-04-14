@@ -35,8 +35,11 @@ export const StartDateStep = ({
   }
   return (
     <S.Container onSubmit={handleSubmit(submit)}>
-      <label htmlFor="startDate">Qual a data de início do tratamento?</label>
-      <input {...register('startDate')} type="date" id="startDate" required />
+      <fieldset>
+        <label htmlFor="startDate">Qual a data de início do tratamento?</label>
+        <input {...register('startDate')} type="date" id="startDate" required />
+      </fieldset>
+
       <S.Controls>
         <button type="submit" onClick={() => changeStep(currentStep - 1)}>
           Voltar

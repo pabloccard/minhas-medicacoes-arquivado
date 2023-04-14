@@ -13,4 +13,7 @@ export const GlobalStyles = createGlobalStyle`
         font-family: 'Roboto', sans-serif;
         overflow-x: hidden;
     }
+    *:focus {
+        outline: none;
+    }
 `
