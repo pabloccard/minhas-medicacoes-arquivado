@@ -4,9 +4,11 @@ export const Container = styled.button`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
 
-  padding: 1rem;
+  width: 65px;
+  height: 75px;
 
   background: ${(props) => props.theme['gray-500']};
   border: 0;

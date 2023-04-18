@@ -21,39 +21,41 @@ export const EventTable = () => {
 
   return (
     <S.Container>
-      <thead>
-        <th></th>
-        <th>medicamento</th>
-        <th>horário</th>
-        <th>status</th>
-      </thead>
+      <S.Table>
+        <thead>
+          <th></th>
+          <th>medicamento</th>
+          <th>horário</th>
+          <th>status</th>
+        </thead>
 
-      <tbody>
-        {schedules.map(({ id, title, datetime, ingested }) => (
-          <tr key={id}>
-            <td>
-              <S.CheckboxRoot
-                onCheckedChange={() => markAsIngested(id)}
-                checked={ingested}
-              >
-                <S.CheckboxIndicator>
-                  <Check weight="bold" />
-                </S.CheckboxIndicator>
-              </S.CheckboxRoot>
-            </td>
-            <td>{title}</td>
-            <td>
-              {intlFormat(new Date(datetime), {
-                hour: '2-digit',
-                minute: '2-digit',
-              })}
-            </td>
-            <td style={{ width: '100%', textAlign: 'center' }}>
-              <StatusHighlight dateTime={datetime} ingested={ingested} />
-            </td>
-          </tr>
-        ))}
-      </tbody>
+        <tbody>
+          {schedules.map(({ id, title, datetime, ingested }) => (
+            <tr key={id}>
+              <td>
+                <S.CheckboxRoot
+                  onCheckedChange={() => markAsIngested(id)}
+                  checked={ingested}
+                >
+                  <S.CheckboxIndicator>
+                    <Check weight="bold" />
+                  </S.CheckboxIndicator>
+                </S.CheckboxRoot>
+              </td>
+              <td>{title}</td>
+              <td>
+                {intlFormat(new Date(datetime), {
+                  hour: '2-digit',
+                  minute: '2-digit',
+                })}
+              </td>
+              <td style={{ width: '10%', textAlign: 'center' }}>
+                <StatusHighlight dateTime={datetime} ingested={ingested} />
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </S.Table>
     </S.Container>
   )
 }

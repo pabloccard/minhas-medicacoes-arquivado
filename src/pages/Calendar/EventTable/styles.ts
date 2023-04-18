@@ -1,20 +1,25 @@
 import styled from 'styled-components'
 import * as Checkbox from '@radix-ui/react-checkbox'
 
-export const Container = styled.table`
-  width: 100%;
+export const Container = styled.div`
+  padding: 0 1.5rem;
+  /* width: 90%; */
+`
+
+export const Table = styled.table`
+  width: 50%;
   border-collapse: separate;
   border-spacing: 0 0.5rem;
 
   th {
     background-color: ${(props) => props.theme.input};
-    padding: 0.5rem 0.875rem;
+    padding: 0.75rem 0.5rem;
     text-align: left;
     color: ${(props) => props.theme['gray-300']};
     font-size: 0.685rem;
     line-height: 1.6;
     text-transform: uppercase;
-    /* text-align: center; */
+    text-align: center;
 
     &:first-child {
       border-top-left-radius: 10px;
@@ -32,12 +37,13 @@ export const Container = styled.table`
   td {
     background-color: ${(props) => props.theme.input};
     color: ${(props) => props.theme['gray-100']};
-    padding: 0.875rem;
-    font-size: 0.875rem;
+    padding: 0.75rem 0.5rem;
+    font-size: 0.75rem;
     line-height: 1.6;
+    text-align: center;
 
     &:first-child {
-      width: 5%;
+      /* width: 5%; */
       padding-left: 1.5rem;
       /* border-top-left-radius: 8px;
       border-bottom-left-radius: 8px; */
@@ -51,7 +57,6 @@ export const Container = styled.table`
       padding-right: 1.5rem;
       /* border-top-right-radius: 8px;
       border-bottom-right-radius: 8px; */
-      color: ${(props) => props.theme['green-600']};
     }
   }
 `
