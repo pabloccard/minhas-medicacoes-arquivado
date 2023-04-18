@@ -30,6 +30,7 @@ export const defaultTheme = {
 
   'green-500': '#00B37E',
   'green-600': '#00B37E',
+  'green-opacity': 'rgb(0, 179, 126, 0.4)',
 
   danger: '#E25858',
 } as const

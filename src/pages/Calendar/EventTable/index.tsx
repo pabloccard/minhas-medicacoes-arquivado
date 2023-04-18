@@ -6,10 +6,11 @@ import { ScheduleType } from '../../../types/Schedule'
 
 import { intlFormat } from 'date-fns'
 import { StatusHighlight } from '../StatusHighlight'
+import { Check } from 'phosphor-react'
 
 export const EventTable = () => {
   const { selectedDate } = useContext(SelectedDateContext)
-  const { findSchedules } = useContext(SchedulesContext)
+  const { findSchedules, markAsIngested } = useContext(SchedulesContext)
 
   const [schedules, setSchedules] = useState<ScheduleType[]>([])
 
@@ -30,7 +31,16 @@ export const EventTable = () => {
       <tbody>
         {schedules.map(({ id, title, datetime, ingested }) => (
           <tr key={id}>
-            <td>x</td>
+            <td>
+              <S.CheckboxRoot
+                onCheckedChange={() => markAsIngested(id)}
+                checked={ingested}
+              >
+                <S.CheckboxIndicator>
+                  <Check weight="bold" />
+                </S.CheckboxIndicator>
+              </S.CheckboxRoot>
+            </td>
             <td>{title}</td>
             <td>
               {intlFormat(new Date(datetime), {
