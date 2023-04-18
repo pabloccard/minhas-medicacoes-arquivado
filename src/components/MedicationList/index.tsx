@@ -11,7 +11,7 @@ import {
   Table,
   Empty,
 } from './styles'
-import { StatusHighlight } from '../StatusHighlight'
+import { StatusHighlight } from '../../pages/Calendar/StatusHighlight'
 import { Check } from 'phosphor-react'
 
 export const MedicationList = () => {
@@ -60,7 +60,7 @@ export const MedicationList = () => {
                     minute: '2-digit',
                   })}
                 </td>
-                <td style={{ width: '20%', textAlign: 'center' }}>
+                <td style={{ width: '50%', textAlign: 'center' }}>
                   <StatusHighlight
                     dateTime={schedule.datetime}
                     ingested={schedule.ingested}

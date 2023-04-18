@@ -26,7 +26,7 @@ export const SchedulesContextProvider = ({
     )
 
     if (scheduleAlreadyExists) {
-      throw new Error('você já tem um cronograma com este medicamento')
+      throw new Error('Este medicamento já está sendo usado')
     }
 
     const startDateTime = new Date(`${startDate} ${startTime}`)
