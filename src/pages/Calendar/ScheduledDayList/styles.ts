@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 
+export const Slider = styled.div``
+
 export const Container = styled.div`
-  display: flex;
-  gap: 1rem;
+  padding-left: 1.5rem;
+  width: 100%;
 `

@@ -3,10 +3,27 @@ import { ScheduledDay } from '../ScheduledDay/indedx'
 import * as S from './styles'
 import { SchedulesContext } from '../../../contexts/ScheduleContext'
 import { isSameDay } from 'date-fns'
-import { SelectedDateContext } from '../../../contexts/SelectedDateContext'
+import 'keen-slider/keen-slider.min.css'
+import { useKeenSlider } from 'keen-slider/react'
 
 export const ScheduledDayList = () => {
-  const { schedules, findSchedules } = useContext(SchedulesContext)
+  const { schedules } = useContext(SchedulesContext)
+
+  const [sliderRef] = useKeenSlider({
+    slides: {
+      perView: 'auto',
+      spacing: 8,
+    },
+
+    breakpoints: {
+      '(min-width: 1024px)': {
+        slides: {
+          perView: 3,
+          spacing: 32,
+        },
+      },
+    },
+  })
 
   const scheduledDays: Date[] = schedules.reduce(
     (acc, schedule) => {
@@ -23,13 +40,17 @@ export const ScheduledDayList = () => {
     [new Date(schedules[0].datetime)],
   )
 
-  console.log(scheduledDays)
-
   return (
     <S.Container>
-      {scheduledDays.map((el) => (
-        <ScheduledDay key={String(el)} date={el} />
-      ))}
+      <S.Slider ref={sliderRef} className="keen-slider">
+        {scheduledDays.map((el) => (
+          <ScheduledDay
+            key={String(el)}
+            date={el}
+            className="keen-slider__slide"
+          />
+        ))}
+      </S.Slider>
     </S.Container>
   )
 }
