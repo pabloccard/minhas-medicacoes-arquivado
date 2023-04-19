@@ -23,10 +23,12 @@ export const EventTable = () => {
     <S.Container>
       <S.Table>
         <thead>
-          <th></th>
-          <th>medicamento</th>
-          <th>horário</th>
-          <th>status</th>
+          <tr>
+            <th></th>
+            <th>medicamento</th>
+            <th>horário</th>
+            <th>status</th>
+          </tr>
         </thead>
 
         <tbody>

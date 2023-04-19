@@ -52,7 +52,7 @@ export const Container = styled.div`
   }
 `
 type LinkProps = {
-  active: boolean
+  $active: boolean
 }
 
 export const Link = styled(NavLink)<LinkProps>`
@@ -63,10 +63,10 @@ export const Link = styled(NavLink)<LinkProps>`
 
   border-top: 3px solid transparent;
   border-bottom: 3px solid transparent;
-  border-bottom-color: ${(props) => props.active && props.theme['green-600']};
+  border-bottom-color: ${(props) => props.$active && props.theme['green-600']};
 
   color: ${(props) =>
-    props.active ? props.theme['green-600'] : props.theme['gray-300']};
+    props.$active ? props.theme['green-600'] : props.theme['gray-300']};
 
   font-size: 1.5rem;
 

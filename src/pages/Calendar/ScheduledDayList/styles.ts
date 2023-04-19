@@ -14,6 +14,7 @@ export const Carousel = styled(motion.div)`
 export const Inner = styled(motion.div)`
   display: flex;
   gap: 0.5rem;
+  justify-content: center;
   padding-right: 1rem;
 `
 

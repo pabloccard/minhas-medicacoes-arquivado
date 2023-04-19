@@ -14,12 +14,12 @@ export const Header = () => {
         <nav>
           <ul>
             <li>
-              <Link to="/" active={currentPath === '/'}>
+              <Link to="/" $active={currentPath === '/'}>
                 <AiOutlineHome />
               </Link>
             </li>
             <li>
-              <Link to="/calendar" active={currentPath === '/calendar'}>
+              <Link to="/calendar" $active={currentPath === '/calendar'}>
                 <AiOutlineCalendar />
               </Link>
             </li>
