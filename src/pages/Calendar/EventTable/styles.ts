@@ -3,11 +3,13 @@ import * as Checkbox from '@radix-ui/react-checkbox'
 
 export const Container = styled.div`
   padding: 0 1.5rem;
-  /* width: 90%; */
+  width: 100%;
+  overflow: auto;
+  white-space: nowrap;
 `
 
 export const Table = styled.table`
-  width: 50%;
+  width: 100%;
   border-collapse: separate;
   border-spacing: 0 0.5rem;
 
@@ -19,7 +21,7 @@ export const Table = styled.table`
     font-size: 0.685rem;
     line-height: 1.6;
     text-transform: uppercase;
-    text-align: center;
+    /* text-align: center; */
 
     &:first-child {
       border-top-left-radius: 10px;
@@ -37,10 +39,10 @@ export const Table = styled.table`
   td {
     background-color: ${(props) => props.theme.input};
     color: ${(props) => props.theme['gray-100']};
-    padding: 0.75rem 0.5rem;
+    padding: 0.875rem 0.5rem;
     font-size: 0.75rem;
     line-height: 1.6;
-    text-align: center;
+    /* text-align: center; */
 
     &:first-child {
       /* width: 5%; */

@@ -49,7 +49,7 @@ export const EventTable = () => {
                   minute: '2-digit',
                 })}
               </td>
-              <td style={{ width: '10%', textAlign: 'center' }}>
+              <td style={{ textAlign: 'center' }}>
                 <StatusHighlight dateTime={datetime} ingested={ingested} />
               </td>
             </tr>
