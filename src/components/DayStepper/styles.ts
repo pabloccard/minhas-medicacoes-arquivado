@@ -8,7 +8,7 @@ export const Container = styled.div`
   width: 10rem;
 
   > span {
-    color: ${(props) => props.theme['gray-100']};
+    color: ${(props) => props.theme.white};
     font-weight: bold;
   }
 

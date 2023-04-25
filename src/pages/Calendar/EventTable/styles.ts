@@ -21,7 +21,7 @@ export const Table = styled.table`
     font-size: 0.685rem;
     line-height: 1.6;
     text-transform: uppercase;
-    /* text-align: center; */
+    text-align: center;
 
     &:first-child {
       border-top-left-radius: 10px;
@@ -42,7 +42,7 @@ export const Table = styled.table`
     padding: 0.875rem 0.5rem;
     font-size: 0.75rem;
     line-height: 1.6;
-    /* text-align: center; */
+    text-align: center;
 
     &:first-child {
       /* width: 5%; */

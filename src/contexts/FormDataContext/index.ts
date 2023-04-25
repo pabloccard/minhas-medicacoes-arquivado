@@ -8,6 +8,7 @@ type FormValues<T> = Record<
 
 type FormDataContextType = {
   data: FormDataType
+  resetData(): void
   setValue<K extends keyof FormDataType>(
     key: K,
     value: FormValues<FormDataType>[K],

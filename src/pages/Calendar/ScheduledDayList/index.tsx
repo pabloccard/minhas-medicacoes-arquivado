@@ -9,9 +9,11 @@ export const ScheduledDayList = () => {
   const { schedules } = useContext(SchedulesContext)
   const carousel = useRef(HTMLElement.arguments)
   const [width, setWidth] = useState(0)
+  const justifyInner = useRef(false)
 
   useEffect(() => {
     setWidth(carousel.current?.scrollWidth - carousel.current?.offsetWidth)
+    justifyInner.current = carousel.current?.scrollWidth <= window.innerWidth
   }, [])
 
   const scheduledDays: Date[] = schedules.reduce(
@@ -32,10 +34,14 @@ export const ScheduledDayList = () => {
   return (
     <S.Container>
       <S.Carousel ref={carousel} whileTap={{ cursor: 'grabing' }}>
-        <S.Inner drag="x" dragConstraints={{ right: 0, left: -width }}>
+        <S.Inner
+          drag="x"
+          dragConstraints={{ right: 0, left: -width }}
+          className={justifyInner.current ? 'justify' : ''}
+        >
           {scheduledDays.map((el) => (
             <S.Item key={String(el)}>
-              <ScheduledDay date={el} className="keen-slider__slide" />
+              <ScheduledDay date={el} />
             </S.Item>
           ))}
         </S.Inner>

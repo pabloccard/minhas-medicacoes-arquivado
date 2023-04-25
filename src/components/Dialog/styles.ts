@@ -17,7 +17,8 @@ export const DialogTrigger = styled(Dialog.Trigger)`
 `
 
 export const DialogOverlay = styled(Dialog.Overlay)`
-  background-color: rgb(1, 1, 1, 0.9);
+  background-color: rgb(26, 26, 26, 0.8);
+  backdrop-filter: blur(0.5rem);
   position: fixed;
   inset: 0;
 

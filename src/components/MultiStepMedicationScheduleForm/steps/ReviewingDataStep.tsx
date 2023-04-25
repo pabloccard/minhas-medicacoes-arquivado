@@ -15,13 +15,20 @@ export const ReviewingDataStep = ({
 }: ReviewingDataStepProps) => {
   const { createSchedule } = useContext(SchedulesContext)
 
-  const { data } = useContext(FormDataContext)
+  const { data, resetData } = useContext(FormDataContext)
 
   function handleCreateSchedule() {
     createSchedule(data)
+    resetData()
   }
-
   const { title, durationInDays, intervalInHours, startDate, startTime } = data
+
+  const date = Intl.DateTimeFormat('pt-BR', {
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric',
+  }).format(new Date(`${startDate}T12:00:00Z`))
+
   return (
     <S.ReviewingContainer>
       <span>
@@ -29,20 +36,23 @@ export const ReviewingDataStep = ({
       </span>
       <span>
         <strong>Duração do tratamento: </strong>
-        {`${durationInDays} em ${durationInDays}`}
+        {`${durationInDays} ${durationInDays > 1 ? 'dias' : 'dia'}`}
       </span>
       <span>
-        <strong>intervalo de horas: </strong> {`${intervalInHours} horas`}
+        <strong>intervalo de horas: </strong>{' '}
+        {`${intervalInHours} em ${intervalInHours} horas`}
       </span>
       <span>
-        <strong>Início do tratamento: </strong> {startDate}
+        <strong>Início do tratamento: </strong> {date}
       </span>
       <span>
         <strong>Primeira dose: </strong> {startTime}
       </span>
       <S.Controls>
         <button onClick={() => changeStep(currentStep - 1)}>Voltar</button>
-        <Dialog.Close onClick={handleCreateSchedule}>Agendar</Dialog.Close>
+        <Dialog.Close onClick={handleCreateSchedule} className="last-step">
+          Agendar
+        </Dialog.Close>
       </S.Controls>
     </S.ReviewingContainer>
   )

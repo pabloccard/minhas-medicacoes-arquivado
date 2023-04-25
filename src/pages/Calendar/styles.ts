@@ -6,14 +6,14 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 3rem;
+  gap: 2.5rem;
 
   &::before {
     content: '';
     position: absolute;
     z-index: -100;
     width: 100vw;
-    height: 283px;
+    height: 18.625rem;
     background: ${(props) => props.theme['gray-700']};
     top: 0;
     left: 0;

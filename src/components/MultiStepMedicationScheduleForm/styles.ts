@@ -60,12 +60,20 @@ export const Controls = styled.div`
   }
 
   button:first-child {
-    background: none;
-    border-color: ${(props) => props.theme['green-600']};
+    background: ${(props) => props.theme['gray-600']};
+    color: ${(props) => props.theme['gray-300']};
   }
 
   button:last-child {
-    background: ${(props) => props.theme['green-600']};
+    transition: background-color 0.2s ease-in;
+    background: ${(props) => props.theme['gray-600']};
+    color: ${(props) => props.theme['green-600']};
+
+    &.last-step {
+      background: ${(props) => props.theme['green-600']};
+      color: ${(props) => props.theme.white};
+    }
+
     grid-column: 2;
   }
 `
@@ -90,8 +98,8 @@ export const RadioGroupItem = styled(RadioGroup.Item)`
   transition: color ease 0.2s, background-color ease 0.2s;
 
   &[data-state='checked'] {
-    background: ${(props) => props.theme['gray-500']};
-    color: ${(props) => props.theme['green-600']};
+    background: ${(props) => props.theme['green-600']};
+    color: ${(props) => props.theme.white};
   }
 `
 export const ReviewingContainer = styled.div`

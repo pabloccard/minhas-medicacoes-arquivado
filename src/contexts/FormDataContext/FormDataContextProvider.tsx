@@ -39,8 +39,12 @@ export const FormDataContextProvider = ({
     })
   }
 
+  function resetData() {
+    setData(defaultFormData)
+  }
+
   return (
-    <FormDataContext.Provider value={{ data, setValue }}>
+    <FormDataContext.Provider value={{ data, setValue, resetData }}>
       {children}
     </FormDataContext.Provider>
   )

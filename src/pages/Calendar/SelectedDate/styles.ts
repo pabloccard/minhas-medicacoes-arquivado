@@ -8,7 +8,7 @@ export const Container = styled.header`
 
   > strong {
     color: ${(props) => props.theme['gray-200']};
-    font-size: 3rem;
+    font-size: 3.5rem;
   }
 
   > div {

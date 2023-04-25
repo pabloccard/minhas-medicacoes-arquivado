@@ -18,7 +18,7 @@ export const Container = styled.span<StatusVariants>`
 
   background-color: ${(props) => {
     if (props.status === 'ingerido') {
-      return 'rgb(59, 102, 48)'
+      return '  #00A372'
     }
 
     if (props.status === 'aguardando') {
@@ -32,7 +32,7 @@ export const Container = styled.span<StatusVariants>`
 
   color: ${(props) => {
     if (props.status === 'ingerido') {
-      return 'rgb(140, 200, 75)'
+      return ' #a8f4dc'
     }
 
     if (props.status === 'aguardando') {

@@ -11,7 +11,9 @@ export function Home() {
         </h1>
 
         <img src={heroImg} alt="Mulher segurando um medicamento" />
-        <p>Chega de se atrapalhar na hora de programar suas medicações.</p>
+        <p>
+          Chega de se atrapalhar na hora de <br /> programar suas medicações.
+        </p>
 
         <DialogDemo />
       </Hero>

@@ -40,7 +40,7 @@ export const EventTable = () => {
                   checked={ingested}
                 >
                   <S.CheckboxIndicator>
-                    <Check weight="bold" />
+                    {/* <Check weight="bold" /> */}V
                   </S.CheckboxIndicator>
                 </S.CheckboxRoot>
               </td>

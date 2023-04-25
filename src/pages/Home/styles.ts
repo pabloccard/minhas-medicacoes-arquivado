@@ -1,13 +1,7 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-  /* height: calc(100vh - 81px); */
-  /* display: flex;
-  align-items: center;
-  justify-content: center;
-  max-width: 1120px;
-  margin: 0 auto; */
-  padding-block: 4.5rem 6rem;
+  padding: 4.5rem 1.5rem 6rem;
 `
 
 export const Hero = styled.section`
@@ -28,6 +22,7 @@ export const Hero = styled.section`
       color: ${(props) => props.theme['green-600']};
     }
   }
+
   p {
     color: ${(props) => props.theme['gray-300']};
     font-size: 18px;
