@@ -5,7 +5,7 @@ import { Container } from './styles'
 export const DefaultLayout = () => {
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       <Container>
         <Outlet />
       </Container>
