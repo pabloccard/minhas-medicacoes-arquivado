@@ -9,11 +9,14 @@ export const ScheduledDayList = () => {
   const { schedules } = useContext(SchedulesContext)
   const carousel = useRef(HTMLElement.arguments)
   const [width, setWidth] = useState(0)
-  const justifyInner = useRef(false)
+  const [justifyInner, setJustifyInner] = useState(true)
+
+  console.log(justifyInner)
 
   useEffect(() => {
     setWidth(carousel.current?.scrollWidth - carousel.current?.offsetWidth)
-    justifyInner.current = carousel.current?.scrollWidth <= window.innerWidth
+    setJustifyInner(carousel.current?.scrollWidth <= window.innerWidth)
+    console.log(carousel.current?.scrollWidth, window.innerWidth)
   }, [])
 
   const scheduledDays: Date[] = schedules.reduce(
@@ -37,7 +40,7 @@ export const ScheduledDayList = () => {
         <S.Inner
           drag="x"
           dragConstraints={{ right: 0, left: -width }}
-          className={justifyInner.current ? 'justify' : ''}
+          // className={justifyInner ? 'justify' : 'a'}
         >
           {scheduledDays.map((el) => (
             <S.Item key={String(el)}>

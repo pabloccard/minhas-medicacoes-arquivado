@@ -59,6 +59,8 @@ export const Table = styled.table`
       padding-right: 1.5rem;
       /* border-top-right-radius: 8px;
       border-bottom-right-radius: 8px; */
+      display: flex;
+      justify-content: center;
     }
   }
 `

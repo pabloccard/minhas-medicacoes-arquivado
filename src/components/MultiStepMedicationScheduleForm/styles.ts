@@ -21,6 +21,7 @@ export const Container = styled.form`
     filter: invert(100%) brightness(40%);
 
     font-weight: bold;
+    padding-left: 4rem;
   }
 
   input::placeholder {
